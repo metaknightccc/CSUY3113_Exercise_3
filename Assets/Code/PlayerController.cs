@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     int moveSpeed = 5; // how fast the player moves
     float lookSpeedX = 6; // left/right mouse sensitivity
     float lookSpeedY = 3; // up/down mouse sensitivity
-    int jumpForce = 50; // ammount of force applied to create a jump
+    int jumpForce = 250; // ammount of force applied to create a jump
 
     public Transform camTrans; // a reference to the camera transform
     float xRotation;
@@ -46,11 +46,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        xRotation -= Input.GetAxis("Mouse Y") * lookSpeedX;
-        yRotation += Input.GetAxis("Mouse X") * lookSpeedY; //inverted
+        xRotation -= Input.GetAxis("Mouse Y") * lookSpeedY;
+        yRotation += Input.GetAxis("Mouse X") * lookSpeedX; //inverted
         xRotation = Mathf.Clamp(xRotation, -90, 90); //Keeps up/down head rotation realistic
         camTrans.localEulerAngles = new Vector3(xRotation, 0, 0);
         transform.eulerAngles = new Vector3(0, yRotation, 0);
+
+        // _rigidbody.AddForce(new Vector3(0, jumpForce, 0));
 
         if (grounded && Input.GetButtonDown("Jump")) //if the player is on the ground and press Spacebar
         {
