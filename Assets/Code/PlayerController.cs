@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision) 
     {
         EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
-        if(enemy){
+        if(enemy && enemy.isAlive){
             health -= enemy.damage;
         }
         if (health <= 0){

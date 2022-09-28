@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     Rigidbody zombieRB;
 
     public float knockbackStrength;
+    public bool isAlive;
     
     // Start is called before the first frame update
 
@@ -24,6 +25,7 @@ public class EnemyController : MonoBehaviour
         player = GameObject.Find("Player");
         zombie = this.gameObject;
         zombieRB = zombie.GetComponent<Rigidbody>();
+        isAlive = true;
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class EnemyController : MonoBehaviour
     {
         health -= amount;
         if(health <= 0){
+            isAlive = false;
             zombieRB.AddForce(camTrans.forward * 800 + Vector3.up * 200);
             zombieRB.AddTorque(new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50)));
         }
@@ -48,7 +51,7 @@ public class EnemyController : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.collider.CompareTag("Player")){
             Rigidbody rb = other.collider.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (rb != null && isAlive)
             {
                 rb.AddForce(transform.forward * knockbackStrength, ForceMode.Impulse);
             }
