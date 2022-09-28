@@ -43,5 +43,4 @@ public class PlayerAttack : MonoBehaviour
             reticleTarget = false;
         }
     }
-
 }

@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using TMPro;
 public class PlayerController : MonoBehaviour
 {
     int moveSpeed = 5; // how fast the player moves
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour
     float groundCheckDist = .5f; //How far down to check for the ground. The radius of Physics.CheckSphere
     public bool grounded = false; //Is the player on the ground
 
+    public int health = 100;
+    public TextMeshProUGUI healthText;
+
     void Start()
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour
 #endif
         _rigidbody = GetComponent<Rigidbody>(); // Using GetComponent is expensive. Always do it in start and chache it when you can.
         Cursor.lockState = CursorLockMode.Locked; // Hides the mouse and locks it to the center of the screen.
+        healthText.text = "HEALTH: " + health;
     }
 
     void FixedUpdate()
@@ -58,5 +63,17 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.AddForce(new Vector3(0, jumpForce, 0)); // Add a force jumpForce in the Y direction
         }
+    }
+
+    private void OnCollisionEnter(Collision collision) 
+    {
+        EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+        if(enemy){
+            health -= enemy.damage;
+        }
+        if (health <= 0){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        healthText.text = "HEALTH: " + health;
     }
 }

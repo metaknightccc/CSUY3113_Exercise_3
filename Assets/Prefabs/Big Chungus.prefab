@@ -2000,8 +2000,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 50
+  damage: 10
   camTrans: {fileID: 0}
-  Player: {fileID: 0}
   enemy: {fileID: 7023544310860401709}
 --- !u!195 &7023544310860401709
 NavMeshAgent:
