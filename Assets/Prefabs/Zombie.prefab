@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8592740686600460903}
   - component: {fileID: 8462847819220866995}
   - component: {fileID: 5087553218895445129}
+  - component: {fileID: 1694821426}
   m_Layer: 3
   m_Name: Zombie
-  m_TagString: Monster
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,3 +116,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1694821426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5969679177489205881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d8f63e9f02a9a46b4299b856e98b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 50
+  camTrans: {fileID: 0}
