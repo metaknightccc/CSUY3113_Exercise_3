@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     public NavMeshAgent enemy;
     private GameObject zombie;
     Rigidbody zombieRB;
+
+    public float knockbackStrength;
     
     // Start is called before the first frame update
 
@@ -41,6 +43,15 @@ public class EnemyController : MonoBehaviour
         if(health <= 0){
             zombieRB.AddForce(camTrans.forward * 800 + Vector3.up * 200);
             zombieRB.AddTorque(new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50)));
+        }
+    }
+    private void OnCollisionEnter(Collision other) {
+        if(other.collider.CompareTag("Player")){
+            Rigidbody rb = other.collider.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(transform.forward * knockbackStrength, ForceMode.Impulse);
+            }
         }
     }
 }

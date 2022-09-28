@@ -103,7 +103,7 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 0.93099236
   m_BaseOffset: 0.46549618
@@ -126,6 +126,7 @@ MonoBehaviour:
   damage: 5
   camTrans: {fileID: 0}
   enemy: {fileID: 6199480462827840710}
+  knockbackStrength: 35
 --- !u!136 &8338970796757270471
 CapsuleCollider:
   m_ObjectHideFlags: 0
