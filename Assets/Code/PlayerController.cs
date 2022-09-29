@@ -81,11 +81,13 @@ public class PlayerController : MonoBehaviour
             if (health <= 0){
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-            _rigidbody.AddForce(transform.forward * enemy.knockbackStrength, ForceMode.Impulse);
             healthText.text = "HEALTH: " + health;
         }
         else if(collision.gameObject.CompareTag("Health")){
             health += 10;
+            if(health > 100){
+                health = 100;
+            }
             Destroy(collision.gameObject);
         }
     }
