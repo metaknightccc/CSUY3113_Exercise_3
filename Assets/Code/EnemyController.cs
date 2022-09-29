@@ -56,5 +56,8 @@ public class EnemyController : MonoBehaviour
                 rb.AddForce(transform.forward * knockbackStrength, ForceMode.Impulse);
             }
         }
+        else if(other.collider.CompareTag("Health")){
+            Physics.IgnoreCollision(other.collider, GetComponent<Collider>(), true);
+        }
     }
 }
