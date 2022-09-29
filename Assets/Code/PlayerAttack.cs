@@ -9,20 +9,28 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask enemyLayer;
     public Transform camTrans;
     public GameObject theBlood;
-
+    private Weapon currentWeapon;
+    private GameObject Player;
     public Image reticle;
-
     private bool reticleTarget = false;
+
+    private void Start()
+    {
+        Player = GameObject.Find("Player");
+        currentWeapon = Player.GetComponent<Weapon>();
+
+    }
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetMouseButtonDown(0)){
+    {   
+        if (Input.GetMouseButtonDown(0) && currentWeapon.currentEquipment != null){
+            currentWeapon.Shoot();
             RaycastHit hit;
             if(Physics.Raycast(camTrans.position, camTrans.forward, out hit, raycastDist, enemyLayer)){
                 GameObject enemy = hit.collider.gameObject;
-                if (enemy.CompareTag("Zombie")){
+                if (enemy.CompareTag("Zombie") && currentWeapon.currentAmmo > 1 && currentWeapon.currentEquipment != null){
                     Instantiate(theBlood, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-                    enemy.GetComponent<EnemyController>().TakeDamage(5);
+                    enemy.GetComponent<EnemyController>().TakeDamage(currentWeapon.damage);
                 }
             }
         }
