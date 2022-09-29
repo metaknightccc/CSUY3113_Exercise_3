@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(camTrans.position, camTrans.forward, out hit, raycastDist, enemyLayer)){
                 GameObject enemy = hit.collider.gameObject;
-                if (enemy.CompareTag("Zombie") && currentWeapon.currentAmmo > 1 && currentWeapon.currentEquipment != null){
+                if (enemy.CompareTag("Zombie") && currentWeapon.currentAmmo > 0 && currentWeapon.currentEquipment != null){
                     Instantiate(theBlood, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                     enemy.GetComponent<EnemyController>().TakeDamage(currentWeapon.damage);
                 }

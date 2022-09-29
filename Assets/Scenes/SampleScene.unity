@@ -1252,6 +1252,10 @@ PrefabInstance:
       propertyPath: camTrans
       value: 
       objectReference: {fileID: 18925228}
+    - target: {fileID: 3689392601503640971, guid: 9882fb32aa28ea34aad536ca86219dd1, type: 3}
+      propertyPath: knockbackStrength
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3799316780303338086, guid: 9882fb32aa28ea34aad536ca86219dd1, type: 3}
       propertyPath: m_RootOrder
       value: 4

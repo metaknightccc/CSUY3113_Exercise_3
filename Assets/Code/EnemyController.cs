@@ -44,19 +44,13 @@ public class EnemyController : MonoBehaviour
         health -= amount;
         if(health <= 0){
             isAlive = false;
+            zombieRB.isKinematic = false;
             zombieRB.AddForce(camTrans.forward * 800 + Vector3.up * 200);
             zombieRB.AddTorque(new Vector3(Random.Range(-50, 50), Random.Range(-50, 50), Random.Range(-50, 50)));
         }
     }
     private void OnCollisionEnter(Collision other) {
-        if(other.collider.CompareTag("Player")){
-            Rigidbody rb = other.collider.GetComponent<Rigidbody>();
-            if (rb != null && isAlive)
-            {
-                rb.AddForce(transform.forward * knockbackStrength, ForceMode.Impulse);
-            }
-        }
-        else if(other.collider.CompareTag("Health")){
+        if(other.collider.CompareTag("Health")){
             Physics.IgnoreCollision(other.collider, GetComponent<Collider>(), true);
         }
     }
