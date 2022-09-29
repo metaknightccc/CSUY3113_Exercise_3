@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
             if(health > 100){
                 health = 100;
             }
+            healthText.text = "HEALTH: " + health;
             Destroy(collision.gameObject);
         }
     }
