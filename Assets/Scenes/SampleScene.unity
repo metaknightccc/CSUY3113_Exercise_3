@@ -362,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5429468263180365014, guid: 8dff0ec31f9714d428b67befd16237de, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.11
+      value: 11.97
       objectReference: {fileID: 0}
     - target: {fileID: 5429468263180365014, guid: 8dff0ec31f9714d428b67befd16237de, type: 3}
       propertyPath: m_LocalRotation.w
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadout:
   - {fileID: 1339964252118538328, guid: 9564bc6c4d533d048bd3c26bf636ff5d, type: 3}
-  - {fileID: 708565261683047321, guid: d6aaacc9a8182ac49b2a4e370c02d43c, type: 3}
+  - {fileID: 9159721438489288864, guid: 5bcc0f69f7bd9954fbb14c9c7c6daa1e, type: 3}
   weaponParent: {fileID: 724936561}
   currentEquipment: {fileID: 0}
   aimSpeed: 10
