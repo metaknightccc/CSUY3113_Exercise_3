@@ -21,6 +21,7 @@ public class Spawner : Singleton<Spawner>
         if (wave == 1)
         {
             waveText.text = wave + "/3 waves";
+            _audioSource.PlayOneShot(startWaveSound1);
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[0].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[1].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[2].transform.position, transform.rotation).GetComponent<EnemyController>());
@@ -36,6 +37,7 @@ public class Spawner : Singleton<Spawner>
         }
         if (wave == 3)
         {
+            _audioSource.PlayOneShot(startWaveSound3);
             waveText.text = wave + "/3 waves";
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[0].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[1].transform.position, transform.rotation).GetComponent<EnemyController>());
