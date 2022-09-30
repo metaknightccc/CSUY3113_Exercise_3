@@ -12,3 +12,4 @@ Using the given template, we will be creating a first person perspective game.
 - haters are flying towards the player and we dodge them lol
 - shooting competition sim
 - shoot the ducks kinda game except in 3D?
+- left 4 dead 2? Kill zombies as many as you can and wait for rescue
