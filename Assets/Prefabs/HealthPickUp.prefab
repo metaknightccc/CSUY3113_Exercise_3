@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 7880118676581155657}
   - component: {fileID: 555990155}
   - component: {fileID: 555990157}
+  - component: {fileID: 6480791522534784205}
   m_Layer: 6
   m_Name: HealthPickUp
   m_TagString: Health
@@ -241,7 +242,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -258,3 +259,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: -7.35, y: 0, z: 0}
+--- !u!114 &6480791522534784205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9066369024327173750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9301813b7e47ac9418ea330a465e7378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
