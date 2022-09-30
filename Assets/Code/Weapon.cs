@@ -9,21 +9,39 @@ public class Weapon : MonoBehaviour
     public Transform weaponParent;
     public GameObject currentEquipment;
     public int aimSpeed = 20;
-    public int damage = 5;
-    public int maxAmmo = 10;
+    public int damage;
+    public int maxAmmo;
     public int currentAmmo;
-    public float reloadTime = 1f;
+    public float reloadTime;
     
     public TextMeshProUGUI ammoText;
+
+    AudioSource _audioSource;
+    public AudioClip gunSound;
+    public AudioClip reloadSound;
     // Start is called before the first frame update
     void Start()
     {
-        currentAmmo = maxAmmo;
-        ammoText.text = currentAmmo + "/" + maxAmmo;
+        _audioSource = GetComponent<AudioSource>();
         GameObject t_newEquipment = Instantiate(loadout[0], weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
         t_newEquipment.transform.localPosition = Vector3.zero;
         t_newEquipment.transform.localEulerAngles = Vector3.zero;
         currentEquipment = t_newEquipment;
+        if(currentEquipment.CompareTag("Pistol")){
+            maxAmmo = 10;
+            currentAmmo = maxAmmo;
+            damage = 5;
+            reloadTime = 1f;
+        }
+        else if(currentEquipment.CompareTag("LMG")){
+            maxAmmo = 25;
+            currentAmmo = maxAmmo;
+            damage = 15;
+            reloadTime = 2f;
+        }
+        ammoText.text = currentAmmo + "/" + maxAmmo;
+
+
     }
 
     // Update is called once per frame
@@ -41,17 +59,19 @@ public class Weapon : MonoBehaviour
     public void Shoot()
     {
         if(currentAmmo > 0){
+            _audioSource.PlayOneShot(gunSound);
             currentAmmo--;
             ammoText.text = currentAmmo + "/" + maxAmmo;
         }
         else{
+
             StartCoroutine(Reload());
         }
     }
 
     IEnumerator Reload()
-    {
-        print(currentAmmo);
+    {           
+        _audioSource.PlayOneShot(reloadSound, 2);
         ammoText.text = "RELOADING";
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;
@@ -77,6 +97,19 @@ public class Weapon : MonoBehaviour
         GameObject t_newEquipment = Instantiate(loadout[p_ind], weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
         t_newEquipment.transform.localPosition = Vector3.zero;
         t_newEquipment.transform.localEulerAngles = Vector3.zero;
-        currentEquipment = t_newEquipment;
+        currentEquipment = t_newEquipment;        
+        if(currentEquipment.CompareTag("Pistol")){
+            maxAmmo = 10;
+            currentAmmo = maxAmmo;
+            damage = 5;
+            reloadTime = 1f;
+        }
+        else if(currentEquipment.CompareTag("LMG")){
+            maxAmmo = 25;
+            currentAmmo = maxAmmo;
+            damage = 15;
+            reloadTime = 2f;
+        }
+        ammoText.text = currentAmmo + "/" + maxAmmo;
     }
 }
