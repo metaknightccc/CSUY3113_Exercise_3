@@ -15,9 +15,14 @@ public class Weapon : MonoBehaviour
     public float reloadTime;
     
     public TextMeshProUGUI ammoText;
+
+    AudioSource _audioSource;
+    public AudioClip gunSound;
+    public AudioClip reloadSound;
     // Start is called before the first frame update
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         GameObject t_newEquipment = Instantiate(loadout[0], weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
         t_newEquipment.transform.localPosition = Vector3.zero;
         t_newEquipment.transform.localEulerAngles = Vector3.zero;
@@ -54,17 +59,19 @@ public class Weapon : MonoBehaviour
     public void Shoot()
     {
         if(currentAmmo > 0){
+            _audioSource.PlayOneShot(gunSound);
             currentAmmo--;
             ammoText.text = currentAmmo + "/" + maxAmmo;
         }
         else{
+
             StartCoroutine(Reload());
         }
     }
 
     IEnumerator Reload()
-    {
-        print(currentAmmo);
+    {           
+        _audioSource.PlayOneShot(reloadSound, 2);
         ammoText.text = "RELOADING";
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;

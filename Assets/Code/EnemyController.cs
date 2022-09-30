@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public int health;
     public int maxHealth = 50;
     public int damage;
-    public Transform camTrans;
+    private Transform camTrans;
     private GameObject player;
     public NavMeshAgent enemy;
     private GameObject zombie;
@@ -26,6 +26,7 @@ public class EnemyController : MonoBehaviour
         zombie = this.gameObject;
         zombieRB = zombie.GetComponent<Rigidbody>();
         isAlive = true;
+        camTrans = Camera.main.transform;
     }
 
     // Update is called once per frame
