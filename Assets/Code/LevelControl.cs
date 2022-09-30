@@ -16,7 +16,7 @@ public class LevelControl : MonoBehaviour
         wave.SpawnEnemies(1);
     }
     
-    public void Update()
+    public void FixedUpdate()
     {
         wave.CheckAlive();
     }
