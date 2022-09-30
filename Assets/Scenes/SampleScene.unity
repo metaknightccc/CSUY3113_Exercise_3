@@ -402,6 +402,8 @@ MonoBehaviour:
   AliveList: []
   waveText: {fileID: 959637256}
   startWaveSound1: {fileID: 8300000, guid: 9a0f0d79fb4d1d648815aa8836db9c9d, type: 3}
+  startWaveSound2: {fileID: 8300000, guid: 2d20e188ce0e61a49b78877c4080567c, type: 3}
+  startWaveSound3: {fileID: 8300000, guid: 2e82768c7ba89eb47aecf30636474770, type: 3}
 --- !u!4 &397085582
 Transform:
   m_ObjectHideFlags: 0
