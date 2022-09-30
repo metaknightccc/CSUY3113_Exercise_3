@@ -18,8 +18,8 @@ public class Spawner : MonoBehaviour
 
     void StartSpawn(){
         Instantiate(SpawnPrefab[0], SpawnLocations[0].transform.position, transform.rotation);
-        Instantiate(SpawnPrefab[1], SpawnLocations[1].transform.position, transform.rotation);
-        Instantiate(SpawnPrefab[2], SpawnLocations[2].transform.position, transform.rotation);
+        Instantiate(SpawnPrefab[0], SpawnLocations[1].transform.position, transform.rotation);
+        Instantiate(SpawnPrefab[0], SpawnLocations[2].transform.position, transform.rotation);
         if(stopSpawning){
             CancelInvoke("StartSpawn");
         }

@@ -14,6 +14,6 @@ public class LevelControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spawner.stopSpawning = true;
+        spawner.stopSpawning = !spawner.stopSpawning;
     }
 }
