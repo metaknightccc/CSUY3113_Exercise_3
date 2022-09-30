@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         lookSpeedY *= .65f; //.65 is a rough guess based on testing in firefox.
 #endif
         _rigidbody = GetComponent<Rigidbody>(); // Using GetComponent is expensive. Always do it in start and chache it when you can.
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked; // Hides the mouse and locks it to the center of the screen.
         healthText.text = "HEALTH: " + health;
 

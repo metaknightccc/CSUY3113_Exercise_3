@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Transform[] spawnLocations;
+    public Transform[] SpawnLocations;
     public GameObject[] SpawnPrefab;
-    public GameObject[] SpawnClone;
+
+    public bool stopSpawning = false;
+    public float spawnTime;
+    public float spawnDelay;
 
     void Start(){
-        StartSpawn();
+        InvokeRepeating("StartSpawn", spawnTime, spawnDelay);
     }
 
     void StartSpawn(){
-        SpawnClone[0] = Instantiate(SpawnPrefab[0], spawnLocations[0].transform.position, Quaternion.Euler(0,0,0)) as GameObject;
-        SpawnClone[1] = Instantiate(SpawnPrefab[1], spawnLocations[1].transform.position, Quaternion.Euler(0,0,0)) as GameObject;
-        SpawnClone[2] = Instantiate(SpawnPrefab[2], spawnLocations[2].transform.position, Quaternion.Euler(0,0,0)) as GameObject;
+        Instantiate(SpawnPrefab[0], SpawnLocations[0].transform.position, transform.rotation);
+        Instantiate(SpawnPrefab[1], SpawnLocations[1].transform.position, transform.rotation);
+        Instantiate(SpawnPrefab[2], SpawnLocations[2].transform.position, transform.rotation);
     }
 }
