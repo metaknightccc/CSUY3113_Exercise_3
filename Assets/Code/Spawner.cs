@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public Transform[] SpawnLocations;
     public GameObject[] SpawnPrefab;
+    
 
     public bool stopSpawning = false;
     public float spawnTime;
@@ -19,5 +20,8 @@ public class Spawner : MonoBehaviour
         Instantiate(SpawnPrefab[0], SpawnLocations[0].transform.position, transform.rotation);
         Instantiate(SpawnPrefab[1], SpawnLocations[1].transform.position, transform.rotation);
         Instantiate(SpawnPrefab[2], SpawnLocations[2].transform.position, transform.rotation);
+        if(stopSpawning){
+            CancelInvoke("StartSpawn");
+        }
     }
 }

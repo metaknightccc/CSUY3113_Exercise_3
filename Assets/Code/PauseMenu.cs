@@ -7,6 +7,13 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+
+    GameObject SystemCanvas;
+
+    private void Start() {
+        SystemCanvas = GameObject.Find("SystemCanvas");
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
@@ -20,6 +27,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Resume(){
+        SystemCanvas.SetActive(true);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenuUI.SetActive(false);
@@ -38,6 +46,9 @@ public class PauseMenu : MonoBehaviour
     }
 
     void Pause(){
+        
+        SystemCanvas.SetActive(false);
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         pauseMenuUI.SetActive(true);
