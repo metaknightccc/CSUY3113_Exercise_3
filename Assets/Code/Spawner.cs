@@ -2,23 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class Spawner : Singleton<Spawner>
 {
     public Transform[] SpawnLocations;
     public GameObject[] SpawnPrefab;
     public List<EnemyController> AliveList;
-
+    public TextMeshProUGUI waveText;
+    AudioSource _audioSource;
+    public AudioClip startWaveSound1;
+    private void Start() {
+    _audioSource = GetComponent<AudioSource>();
+    }
     public void StartSpawn(int wave){
         AliveList.Clear();
         if (wave == 1)
         {
+            waveText.text = wave + "/3 waves";
+            _audioSource.PlayOneShot(startWaveSound1);
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[0].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[1].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[2].transform.position, transform.rotation).GetComponent<EnemyController>());
         }
         if (wave == 2)
-        {
+        {   
+            waveText.text = wave + "/3 waves";
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[0].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[1].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[2].transform.position, transform.rotation).GetComponent<EnemyController>());
@@ -27,6 +35,7 @@ public class Spawner : Singleton<Spawner>
         }
         if (wave == 3)
         {
+            waveText.text = wave + "/3 waves";
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[0].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[1].transform.position, transform.rotation).GetComponent<EnemyController>());
             AliveList.Add(Instantiate(SpawnPrefab[0], SpawnLocations[2].transform.position, transform.rotation).GetComponent<EnemyController>());
@@ -40,4 +49,5 @@ public class Spawner : Singleton<Spawner>
         }
         
     }
+
 }

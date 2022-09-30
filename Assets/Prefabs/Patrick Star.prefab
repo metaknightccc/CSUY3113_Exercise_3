@@ -160,7 +160,6 @@ MonoBehaviour:
   health: 0
   maxHealth: 75
   damage: 25
-  camTrans: {fileID: 0}
   enemy: {fileID: 947334806928267836}
   knockbackStrength: 90
-  isAlive: 0
+  isAlive: 1

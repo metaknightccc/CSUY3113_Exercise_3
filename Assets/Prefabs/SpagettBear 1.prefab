@@ -124,10 +124,9 @@ MonoBehaviour:
   health: 0
   maxHealth: 50
   damage: 5
-  camTrans: {fileID: 0}
   enemy: {fileID: 6199480462827840710}
   knockbackStrength: 35
-  isAlive: 0
+  isAlive: 1
 --- !u!136 &8338970796757270471
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -2001,10 +2001,9 @@ MonoBehaviour:
   health: 0
   maxHealth: 50
   damage: 10
-  camTrans: {fileID: 0}
   enemy: {fileID: 7023544310860401709}
   knockbackStrength: 100
-  isAlive: 0
+  isAlive: 1
 --- !u!195 &7023544310860401709
 NavMeshAgent:
   m_ObjectHideFlags: 0

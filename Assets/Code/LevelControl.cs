@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using Update = Unity.VisualScripting.Update;
-
+using TMPro;
 public class LevelControl : MonoBehaviour
 {
+
     [SerializeField] private Wave wave;
     void Start()
     {
@@ -29,14 +30,19 @@ public class LevelControl : MonoBehaviour
         {
             foreach (EnemyController i in Spawner.GetInstance().AliveList)
             {
+
                 if (i.isAlive == true) return;
             }
+
             SpawnEnemies(++wave_num);
+            print(wave_num);
         }
         
         public void SpawnEnemies(int wave_num)
         {
+            print(wave_num);
             Spawner.GetInstance().StartSpawn(wave_num);
         }
     }
+
 }

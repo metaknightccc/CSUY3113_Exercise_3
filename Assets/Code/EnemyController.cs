@@ -33,7 +33,6 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if(health > 0 ){
-            Debug.Log("123"+this.name);
             enemy.SetDestination(player.transform.position);
         }
         else{
